@@ -44,6 +44,7 @@ option(CABL_BUILD_HIDAPI               "Force download and build hidapi" OFF)
 
 option(CABL_TEST          "Build cabl tests"     ${IS_CABL})
 option(CABL_EXAMPLES      "Build cabl examples"  ${IS_CABL})
+option(CABL_APPS	  "Build cabl applications"  ${IS_CABL})
 option(CABL_DOCS          "Build cabl docs"      ${IS_CABL})
 option(CABL_PYTHON        "Build python binding" ${IS_CABL})
 option(CABL_USE_NETWORK   "Use features that require a network" OFF)
@@ -779,6 +780,11 @@ endif()
 # Examples --------------------------------------------------------------------------------------- #
 if(CABL_EXAMPLES AND NOT COVERALLS)
   add_subdirectory(examples)
+endif()
+
+# Applications --------------------------------------------------------------------------------------- #
+if(CABL_APPS AND NOT COVERALLS)
+  add_subdirectory(apps)
 endif()
 
 # Clang-tidy and Clang-format -------------------------------------------------------------------- #
