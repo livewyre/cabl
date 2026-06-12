@@ -1,12 +1,12 @@
 # You are probably looking for the `develop` branch. 
 
-Go to [/cabl/tree/develop](github.com/livewyre/cabl/tree/develop) and read the README there instead.
+Go to [/cabl/tree/develop](https://github.com/livewyre/cabl/tree/develop) and read the README there instead.
 
 `master` has been stale for a decade on the upstream repo. 
 
 `develop` is a little bit fresher and fairly easy to build still today (june 2026) from the original repo following instructions in that branch and some trivial fixes.
 
-If this fork/repo works for you, so much the better, since I've done those fixes. Go to [/cabl/tree/develop](github.com/livewyre/cabl/tree/develop) and read the README there instead.
+If this fork/repo works for you, so much the better, since I've done those fixes. Go to [/cabl/tree/develop](https://github.com/livewyre/cabl/tree/develop) and read the README there instead.
 
 I dunno if the Darwin and/or Windows stuff works at the moment. I assume so. Either way this master branch aint it.
 
