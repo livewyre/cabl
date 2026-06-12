@@ -1,3 +1,16 @@
+## Note! Addendum! Halt! Check it-
+
+On Linux, at least, possibly other platforms, `cmake` will fail to find, or will convince itself it can't find, the rtmidi header files.
+
+Until that is fixed (don't look at me, its been an issue and I just got here) when you build from source and link against rtmidi installed as a system package you will need to:
+
+Replace `cmake ..`
+
+With `cmake .. -DRTMIDI_INCLUDE_DIRS=/usr/include/rtmidi` (or similar, wherever your system installed the .h files for the rtmidi lib. cmake needs to be spoonfed this one thing.)
+
+when following the build instructions in the document below. I haven't and can't test everything so I dunno what might be broken, but the maschine mikro mk1 support is not currently mature like old videos might lead one to believe.
+
+
 # CABL / Controller ABstraction Layer #
 --------------------
 [![Build Status](https://travis-ci.org/shaduzlabs/cabl.svg?branch=develop)](https://travis-ci.org/shaduzlabs/cabl) [![Build status](https://ci.appveyor.com/api/projects/status/7pfqx8o4df2oy09t/branch/develop?svg=true)](https://ci.appveyor.com/project/shaduzlabs/cabl/branch/develop) [![Coverage Status](https://coveralls.io/repos/github/shaduzlabs/cabl/badge.svg?branch=develop)](https://coveralls.io/github/shaduzlabs/cabl?branch=develop)
