@@ -19,7 +19,7 @@ function (checkout_external_project target repository tag)
 
     #generate false dependency project
     set(CMAKE_LIST_CONTENT "
-      cmake_minimum_required(VERSION 2.8)
+      cmake_minimum_required(VERSION 3.10)
 
       include(ExternalProject)
       ExternalProject_add(
