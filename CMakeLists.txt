@@ -5,7 +5,7 @@
         ##      ##
 ##########      ############################################################# shaduzlabs.com #######
 
-cmake_minimum_required (VERSION 2.8.0)
+cmake_minimum_required (VERSION 3.5)
 
 project (cabl)
 
@@ -39,6 +39,7 @@ option(CABL_FORCE_BUILD_DEPENDENCIES   "Force download and build dependencies" O
 
 option(CABL_TEST          "Build cabl tests"     ${IS_CABL})
 option(CABL_EXAMPLES      "Build cabl examples"  ${IS_CABL})
+option(CABL_APPS          "Build cabl apps"      ${IS_CABL})
 option(CABL_DOCS          "Build cabl docs"      ${IS_CABL})
 option(CABL_PYTHON        "Build python binding" ${IS_CABL})
 
@@ -361,6 +362,8 @@ set(
     src/devices/ni/MaschineJamHelper.cpp
     src/devices/ni/MaschineMK1.h
     src/devices/ni/MaschineMK1.cpp
+    src/devices/ni/MaschineMikroMK1.h
+    src/devices/ni/MaschineMikroMK1.cpp
     src/devices/ni/MaschineMK2.h
     src/devices/ni/MaschineMK2.cpp
     src/devices/ni/MaschineMikroMK2.h
@@ -462,10 +465,7 @@ set(
 )
 
 
-# All platforms ---------------------------------------------------------------------------------- #
-if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-  include_directories( /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/)
-endif()
+# Note: do not force libc++ include paths on Darwin; it can shadow SDK headers (e.g. stdint.h).
 
 set(
   cabl_ALL
@@ -741,6 +741,11 @@ endif()
 # Examples --------------------------------------------------------------------------------------- #
 if(CABL_EXAMPLES AND NOT COVERALLS)
   add_subdirectory(examples)
+endif()
+
+# Apps ------------------------------------------------------------------------------------------- #
+if(CABL_APPS AND NOT COVERALLS)
+  add_subdirectory(apps)
 endif()
 
 # Clang-tidy and Clang-format -------------------------------------------------------------------- #

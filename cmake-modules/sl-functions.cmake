@@ -18,7 +18,8 @@ function (checkout_external_project target repository tag)
 
     #generate false dependency project
     set(CMAKE_LIST_CONTENT "
-      cmake_minimum_required(VERSION 2.8)
+      cmake_minimum_required(VERSION 3.5)
+      project(${target})
 
       include(ExternalProject)
       ExternalProject_add(
@@ -26,6 +27,8 @@ function (checkout_external_project target repository tag)
         PREFIX ${CMAKE_BINARY_DIR}/${target}
         GIT_REPOSITORY ${repository}
         GIT_TAG ${tag}
+        UPDATE_COMMAND \"\"
+        UPDATE_DISCONNECTED 1
         CONFIGURE_COMMAND echo \"\"
         BUILD_COMMAND echo \"\"
           LOG_DOWNLOAD ON
